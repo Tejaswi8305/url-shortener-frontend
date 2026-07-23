@@ -12,6 +12,8 @@ function Dashboard() {
     const [shortUrl, setShortUrl] = useState("");
     const [urls, setUrls] = useState([]);
 
+    const BASE_URL = "https://url-shortener-backend-92n5.onrender.com";
+
     const logout = () => {
 
         localStorage.removeItem("token");
@@ -89,7 +91,7 @@ function Dashboard() {
     const copyToClipboard = (shortCode) => {
 
         navigator.clipboard.writeText(
-            `http://localhost:8080/${shortCode}`
+            `${BASE_URL}/${shortCode}`
         );
 
         alert("Copied to Clipboard!");
@@ -118,8 +120,6 @@ function Dashboard() {
             </nav>
 
             <div className="max-w-6xl mx-auto p-8">
-
-                {/* Statistics */}
 
                 <div className="grid grid-cols-2 gap-6 mb-8">
 
@@ -159,8 +159,6 @@ function Dashboard() {
                     </div>
 
                 </div>
-
-                {/* Create URL */}
 
                 <div className="bg-white rounded-xl shadow p-8">
 
@@ -224,8 +222,6 @@ function Dashboard() {
 
                 </div>
 
-                {/* My URLs */}
-
                 <div className="bg-white rounded-xl shadow mt-10 p-8">
 
                     <h2 className="text-3xl font-bold mb-6">
@@ -265,12 +261,12 @@ function Dashboard() {
                                     <td className="border p-3">
 
                                         <a
-                                            href={`http://localhost:8080/${url.shortCode}`}
+                                            href={`${BASE_URL}/${url.shortCode}`}
                                             target="_blank"
                                             rel="noreferrer"
                                             className="text-blue-600 underline"
                                         >
-                                            {`http://localhost:8080/${url.shortCode}`}
+                                            {`${BASE_URL}/${url.shortCode}`}
                                         </a>
 
                                     </td>
